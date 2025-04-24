@@ -36,7 +36,7 @@ class OpenFileInCursorAction : AnAction() {
                 arrayOf("open", "-a", "$cursorPath", "cursor://file$filePath:$line:$column")
             }
             System.getProperty("os.name").lowercase().contains("windows") -> {
-                arrayOf("cmd", "/c", "$cursorPath", "--goto", "$filePath:$line:$column")
+                arrayOf("cmd", "/c", "$cursorPath" , "-r", "--goto", "$filePath:$line:$column")
             }
             else -> {
                 arrayOf(cursorPath, "--goto", "$filePath:$line:$column")
